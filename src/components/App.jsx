@@ -17,12 +17,15 @@ class App extends React.Component {
   addingNewContact = e => {
     const { name, number } = e.currentTarget;
     let isTaken = false;
-    this.state.contacts.map(contact => {
+    for (let contact of this.state.contacts) {
       if (contact.name.toLowerCase() === name.value.toLowerCase()) {
         isTaken = true;
+        continue;
       }
-    });
+    }
+
     if (!isTaken) {
+      console.log('yes');
       const contactId = shortid.generate();
       const newContact = {
         id: contactId,
