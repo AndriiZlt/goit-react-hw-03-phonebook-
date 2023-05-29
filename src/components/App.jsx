@@ -20,7 +20,6 @@ class App extends React.Component {
     this.state.contacts.map(contact => {
       if (contact.name.toLowerCase() === name.value.toLowerCase()) {
         isTaken = true;
-        return;
       }
     });
     if (!isTaken) {
